@@ -60,7 +60,7 @@ or manually make matching updates to the `.dist`-less copies of those files.
 To run the supplied skeleton unit tests, you need to do one of the following:
 
 - During initial project creation, select to install the MVC testing support.
-- After initial project creation, install [zend-test](https://zendframework.github.io/zend-test/):
+- After initial project creation, install [zend-test](https://zendframework.github.io/zend-test/): composer require zendframework/zend-test
 
   ```bash
   $ composer require --dev zendframework/zend-test

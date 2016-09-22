@@ -13,6 +13,8 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
     'router' => [
+//        'router_class' => Zend\Mvc\I18n\Router\TranslatorAwareTreeRouteStack::class,
+//        'translator_text_domain' => 'router',
         'routes' => [
             'home' => [
                 'type' => Literal::class,
@@ -27,7 +29,7 @@ return [
             'application' => [
                 'type'    => Segment::class,
                 'options' => [
-                    'route'    => '/application[/:action]',
+                    'route'    => '/application[/:action]', //{string} translatable routeTxt
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
                         'action'     => 'index',
@@ -57,4 +59,14 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+//    'translator' => [
+//        'locale' => 'fr_FR',
+//        'translation_file_patterns' => [
+//            [
+//                'type'     => 'gettext',
+//                'base_dir' => __DIR__ . '/../language',
+//                'pattern'  => '%s.mo',
+//            ],
+//        ],
+//    ],
 ];
