@@ -139,7 +139,7 @@ return [
              * Expects: bool
              * Default: false
              */
-            'version_check' => false,
+            'version_check' => true,
 
             /**
              * Contains a list with all collector toolbar templates. The name  of the array key must be same as the name

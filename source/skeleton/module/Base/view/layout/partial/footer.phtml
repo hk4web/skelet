@@ -1,0 +1,15 @@
+<footer>
+    <?= $this->translate('base_layout_footer', null, null, array(
+        'application_name' => $applicationName,
+        'application_owner' => $applicationOwner,
+        'application_version' => $applicationVersion,
+        'application_year' => $applicationYear,
+        'date_full' => $this->dateFormat(new \DateTime(), IntlDateFormatter::FULL, IntlDateFormatter::NONE),
+        'date_long' => $this->dateFormat(new \DateTime(), IntlDateFormatter::LONG, IntlDateFormatter::NONE),
+        'date_medium' => $this->dateFormat(new \DateTime(), IntlDateFormatter::MEDIUM, IntlDateFormatter::NONE),
+        'date_short' => $this->dateFormat(new \DateTime(), IntlDateFormatter::SHORT, IntlDateFormatter::NONE),
+        'time_long' => $this->dateFormat(new \DateTime(), IntlDateFormatter::NONE, IntlDateFormatter::LONG),
+        'time_medium' => $this->dateFormat(new \DateTime(), IntlDateFormatter::NONE, IntlDateFormatter::MEDIUM),
+        'time_short' => $this->dateFormat(new \DateTime(), IntlDateFormatter::NONE, IntlDateFormatter::SHORT),
+    )); ?>
+</footer>

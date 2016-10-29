@@ -1,0 +1,38 @@
+<?php
+
+$allowedAttributes = array(
+    'class'     => true,
+    'href'      => true,
+    'id'        => true,
+    'title'     => true,
+);
+
+$attributes = isset($attributes) ? $attributes : array();
+
+if (!isset($attributes['class'])) {
+    $attributes['class'] = '';
+}
+if (!preg_match('/^btn$|^btn | btn$/', $attributes['class'])) {
+    $attributes['class'] .= ' btn';
+}
+if (!preg_match('/^btn-| btn-/', $attributes['class'])) {
+    $attributes['class'] .= ' btn-default';
+}
+
+//  Remove unauthorized attributes
+foreach ($attributes as $attribute => $value) {
+    if ((!isset($allowedAttributes[$attribute]) || !$allowedAttributes[$attribute])
+    && substr($attribute, 0, 5) !== 'data-') {
+        unset($attributes[$attribute]);
+    } else {
+        $attributes[$attribute] = $attribute . '="' . $value . '"';
+    }
+}
+
+//  Check element type (Button or Link)
+$type = 'button';
+if (isset($attributes['href']) && $attributes['href']) {
+    $type = 'a';
+}
+
+echo sprintf('<%1$s %2$s>%3$s</%1$s>', $type, implode(' ', $attributes), $this->translate($label));

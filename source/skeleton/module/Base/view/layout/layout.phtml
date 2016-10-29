@@ -1,0 +1,22 @@
+<?= $this->doctype(); ?>
+<html>
+    <head>
+        <?= $this->headTitle(); ?>
+        <?= $this->headMeta(); ?>
+        <?= $this->headLink(); ?>
+    </head>
+    <body>
+        <div class="page-wrapper-top" id="top">
+            <?= $this->partial('partial/header'); ?>
+            <div class="container">
+                <div class="page-header"><h1><?= $this->title; ?></h1></div>
+                <?= $this->partial('partial/message'); ?>
+                <?= $this->content; ?>
+            </div>
+        </div>
+        <div class="page-wrapper-bottom">
+            <?= $this->partial('partial/footer'); ?>
+        </div>
+        <?= $this->headScript(); ?>
+    </body>
+</html>

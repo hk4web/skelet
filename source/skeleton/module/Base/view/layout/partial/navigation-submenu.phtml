@@ -1,0 +1,52 @@
+<?php
+    /* @var $navigation \Zend\View\Helper\Navigation */
+    $navigation = $this->navigation();
+?>
+<?php /* @var $page \Zend\Navigation\Page\AbstractPage */ ?>
+<?php foreach ($pages as $page) : ?>
+    <?php /* Test if page is allowed */ ?>
+    <?php if (!$navigation->accept($page)) continue; ?>
+
+    <?php /* Page without children */ ?>
+    <?php if (!$page->hasPages()) : ?>
+        <li <?= $page->isActive() ? ' class="active"' : ''; ?>>
+            <a href="<?= $page->getHref(); ?>"<?= ($page->getTarget() != "") ? ' target="'.$page->getTarget().'"' : ''; ?>>
+                <?php if ($page->get("icon") !== "") : ?>
+                    <span class="<?= $page->get("icon"); ?>"></span>
+                <?php endif; ?>
+                <?= $this->escapeHtml($this->translate($page->getLabel(), $navigation->getTranslatorTextDomain())); ?>
+            </a>
+        </li>
+    <?php /* Page with children */ ?>
+    <?php else : ?>
+        <?php
+            $access = false;
+            foreach ($page->getPages() as $child) {
+                if ($navigation->accept($child) && $child->get('separator') !== true) {
+                    $access = true;
+                }
+            }
+        ?>
+        <?php if ($access) : ?>
+            <li class="divider"></li>
+            <?php if ($page->getLabel()) : ?>
+                <li class="dropdown-header">
+                    <?php if ($page->get("icon") !== "") : ?>
+                        <span class="<?= $page->get("icon"); ?>"></span>
+                    <?php endif; ?>
+                    <?= $this->escapeHtml($this->translate($page->getLabel(), $navigation->getTranslatorTextDomain())); ?>
+                </li>
+            <?php endif; ?>
+            <?= $this->partial('partial/nav-submenu', array('pages' => $page->getPages())); ?>
+        <?php else : ?>
+            <li <?= $page->isActive(true) ? ' class="active"' : ''; ?>>
+                <a href="<?= $page->getHref(); ?>"<?= ($page->getTarget() != "") ? ' target="'.$page->getTarget().'"' : ''; ?>>
+                    <?php if ($page->get("icon") !== "") : ?>
+                        <span class="<?= $page->get("icon"); ?>"></span>
+                    <?php endif; ?>
+                    <?= $this->escapeHtml($this->translate($page->getLabel(), $navigation->getTranslatorTextDomain())); ?>
+                </a>
+            </li>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php endforeach; ?>

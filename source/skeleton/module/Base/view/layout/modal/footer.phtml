@@ -1,0 +1,9 @@
+<?php if (isset($actions) && $actions) : ?>
+<div class="modal-footer">
+    <?php foreach ($actions as $name => $action) {
+        $label = isset($action['label']) ? $action['label'] : $name;
+        $attributes = isset($action['attributes']) ? $action['attributes'] : array();
+        echo $this->partial('modal/button', array('label' => $label, 'attributes' => $attributes));
+    } ?>
+</div>
+<?php endif; ?>

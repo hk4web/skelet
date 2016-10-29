@@ -1,0 +1,86 @@
+html, body {
+    height:                 100%;
+    min-height:             100%;
+}
+body {
+    position:               relative;
+    overflow-y:             scroll;
+}
+.page-wrapper-top {
+    min-height:             100%;
+    padding-bottom:         40px;
+}
+.page-wrapper-top > .container {
+    padding-top:            50px;
+}
+.page-wrapper-bottom {
+    clear:                  both;
+    height:                 40px;
+    margin-top:             -40px;
+}
+header {
+}
+footer {
+    height:                 40px;
+    padding:                10px;
+    text-align:             center;
+}
+.table tr > th,
+.table tr > td {
+    width:                  0;
+    white-space:            nowrap;
+}
+.table tr > td:last-child,
+.table tr > th:last-child {
+    width:                  auto;
+    white-space:            normal;
+}
+.tab-content {
+    padding:                20px 0;
+}
+#messages ul {
+    padding:                0;
+    list-style:             none;
+}
+a.tab-action,
+button.tab-action {
+    float:                  right;
+}
+#actions {
+    margin-bottom:          20px;
+}
+.indent {
+    display:                inline-block;
+    width:                  20px;
+}
+.tristate {
+    cursor:                 pointer;
+}
+.W25 {
+    display: inline-block;
+    width: 20px;
+}
+
+.vertical-bottom {
+    vertical-align : bottom;
+}
+
+.vertical-top {
+    vertical-align : top;
+}
+
+.vertical-center {
+    vertical-align: middle !important;
+}
+.scroll-x {
+    overflow-x: auto;
+}
+
+.spaceButton {
+    padding-left: 5px;
+}
+
+.topLess {
+    margin-top: -30px;
+    margin-left: -5px;
+}

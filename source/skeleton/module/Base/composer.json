@@ -1,0 +1,31 @@
+{
+    "name": "docapost/base",
+    "description": "Module ZF2 de base",
+    "type": "library",
+    "keywords": [
+        "docapost",
+        "zf2"
+    ],
+    "homepage": "https://git.docapost-dps.net/docapost/base.git",
+    "authors": [
+        {
+            "name": "Florian POINTILLART",
+            "email": "florian.pointillart@docapost-dps.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "zendframework/zendframework": "2.*",
+        "doctrine/doctrine-orm-module": "0.7.*",
+        "gedmo/doctrine-extensions": "2.*",
+        "neilime/zf2-twb-bundle": "2.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Base": "src/"
+        },
+        "classmap": [
+            "./Module.php"
+        ]
+    }
+}

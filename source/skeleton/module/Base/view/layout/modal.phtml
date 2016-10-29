@@ -1,0 +1,9 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <?= $this->partial('modal/header', array('title' => $this->title)); ?>
+        <div class="modal-body">
+            <?= $this->content; ?>
+        </div>
+        <?= $this->partial('modal/footer', array('actions' => $this->actions)); ?>
+    </div>
+</div>
